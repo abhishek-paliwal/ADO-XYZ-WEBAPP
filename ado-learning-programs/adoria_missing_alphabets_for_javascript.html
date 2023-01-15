@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Random missing alphabets</title>
+
+<script>
+  function myFunc() {
+  var cars = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+  var text = "";
+  var i;
+  rand = Math.floor((Math.random() * 4) + 1);
+
+  for (i = 0; i < cars.length; i++) {
+          if (i%rand == 0 && rand != 1) {cars[i] = "_";}
+          if (i%rand == 0 && rand == 1) {i=i+2; cars[i] = "_";}
+  }
+
+  for (i = 0; i < cars.length; i++) {
+  text += cars[i] + " ";
+  }
+
+  document.getElementById("demo").innerHTML = text + "<br><br>" + rand;
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+<style>
+div {
+  font-family: 'Roboto Mono', monospace;
+  font-size:70px;
+  width:550px;
+}
+</style>
+
+</head>
+<body>
+<button type="button" onclick="myFunc();">Get random blanks!</button>
+
+<div id="demo"></div>
+
+</body>
+</html>
